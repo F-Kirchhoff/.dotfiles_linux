@@ -28,6 +28,9 @@ config.font = wezterm.font 'FiraCode Nerd Font Mono'
 config.font_size = 18
 config.initial_rows = 30
 config.initial_cols = 50
+config.window_background_opacity = 0.4
+config.macos_window_background_blur = 60
+
 
 local padding = 24
 config.window_padding = {
