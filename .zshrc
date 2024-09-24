@@ -63,9 +63,6 @@ zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
-# bun completions
-[ -s "${HOME}/.bun/_bun" ] && source "${HOME}/.bun/_bun"
-
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # wush
@@ -77,6 +74,9 @@ function wush {
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
+## bun completions
+[ -s "${HOME}/.bun/_bun" ] && source "${HOME}/.bun/_bun"
+
 # go installations
 export PATH=$PATH:/Users/ph1/go/bin/
 
@@ -84,11 +84,11 @@ export PATH=$PATH:/Users/ph1/go/bin/
 export PYENV_ROOT=$(pyenv root)
 export PATH="$PYENV_ROOT/shims:$PATH"
 
-# starship prompt
-eval "$(starship init zsh)"
-
 #fzf
 eval "$(fzf --zsh)"
 
 #z
 eval "$(zoxide init --cmd cd zsh)"
+
+# starship prompt
+eval "$(starship init zsh)"

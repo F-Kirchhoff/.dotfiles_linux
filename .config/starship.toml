@@ -1,4 +1,5 @@
-format = """$hostname\
+format = """
+$hostname\
 $localip\
 $shlvl\
 $shell\
@@ -35,7 +36,6 @@ $cmd_duration
 $character
 """
 
-add_newline = false
 
 [directory]
 read_only = " "
