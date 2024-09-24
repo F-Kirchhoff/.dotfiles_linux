@@ -68,17 +68,12 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 # bun completions
 [ -s "${HOME}/.bun/_bun" ] && source "${HOME}/.bun/_bun"
 
-# Set it so ~/.pyenv provides Python before others of the same name:
-export PYENV_ROOT=$(pyenv root)
-export PATH="$PYENV_ROOT/shims:$PATH"
-
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # wush
 function wush {
   zsh <(curl -sSL "https://raw.githubusercontent.com/neuefische/web-push/main/wush.sh")
 }
-
 
 # transient prompt
 zle-line-init() {
@@ -100,7 +95,7 @@ zle-line-init() {
   zle .reset-prompt
   PROMPT=$saved_prompt
   RPROMPT=$saved_rprompt
- 
+
   if (( ret )); then
     zle .send-break
   else
@@ -114,6 +109,13 @@ zle -N zle-line-init
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# go installations
+export PATH=$PATH:/Users/ph1/go/bin/
+
+# Set it so ~/.pyenv provides Python before others of the same name:
+export PYENV_ROOT=$(pyenv root)
+export PATH="$PYENV_ROOT/shims:$PATH"
 
 # starship prompt
 eval "$(starship init zsh)"
