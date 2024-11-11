@@ -1,0 +1,8 @@
+[user]
+        email = f.kirchhoff@proton.me
+        name = Felix Kirchhoff
+[init]
+        defaultBranch = main
+[push]
+        default = simple
+        autoSetupRemote = true
