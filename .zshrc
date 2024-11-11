@@ -1,4 +1,4 @@
-export TERM="xterm-256color" # This sets up colors properly
+export TERM="xterm-256color"
 
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 
@@ -63,32 +63,14 @@ zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
+#Extend $PATH
+export PATH="$HOME/.local/bin:$PATH"
 
-# wush
-function wush {
-  zsh <(curl -sSL "https://raw.githubusercontent.com/neuefische/web-push/main/wush.sh")
-}
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-
-## bun completions
-[ -s "${HOME}/.bun/_bun" ] && source "${HOME}/.bun/_bun"
-
-# go installations
-export PATH=$PATH:/Users/ph1/go/bin/
-
-# Set it so ~/.pyenv provides Python before others of the same name:
-export PYENV_ROOT=$(pyenv root)
-export PATH="$PYENV_ROOT/shims:$PATH"
-
-#fzf
-eval "$(fzf --zsh)"
+#Extend XDG_DATA_DIRS
+export XDG_DATA_DIRS=$XDG_DATA_DIRS:/var/lib/flatpak/exports/share:/home/$USER/.local/share/flatpak/exports/share
 
 #z
-eval "$(zoxide init --cmd cd zsh)"
+eval "$(zoxide init zsh --cmd cd)"
 
 # starship prompt
 eval "$(starship init zsh)"
