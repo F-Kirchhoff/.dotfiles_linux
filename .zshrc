@@ -34,6 +34,7 @@ alias "cd -"="cd -- -"
 alias ".."="cd .."
 alias "..."="cd ../.."
 alias "...."="cd ../../.."
+alias open="xdg-open"
 
 ## zsh
 alias reload="source ~/.zshrc"
