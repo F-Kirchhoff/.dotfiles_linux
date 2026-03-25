@@ -1,4 +1,3 @@
-theme = citruszest
-
+theme = dark:srcery, light:Adwaita
 window-padding-x = 12
 font-family = FiraCode Nerd Font Mono
